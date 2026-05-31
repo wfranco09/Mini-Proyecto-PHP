@@ -5,8 +5,6 @@
 
 ## MiniMini Proyecto #2 de Sentencias de Control y Clases - Resolviendo problemas con estructuras de decisión y repetición en PHP
 
-
-
 ## 🎯Objetivos del laboratorio
 Construir aplicaciones web aplicando principios, técnicas, metodologías y
 herramientas de diseño y desarrollo que permita la optimización, facilidad de
@@ -67,13 +65,16 @@ composer dump-autoload
 
 ## Funcionamiento del Autoload y Clases
 
-En este proyecto se implementa la carga automática de clases utilizando Composer bajo el estándar PSR-4, lo que permite instanciar clases sin necesidad de incluir archivos manualmente mediante require o include.
+En este proyecto se implementa la carga automática de clases utilizando Composer
+bajo el estándar PSR-4, lo que permite instanciar clases sin necesidad de incluir
+archivos manualmente mediante require o include.
 
-## El archivo principal (index.php) únicamente requiere el archivo:
+## El archivo principal (index.php) únicamente requiere:
 ```bash
 require 'vendor/autoload.php';
 ```
-Este archivo es generado automáticamente por Composer y se encarga de localizar e incluir las clases según el namespace definido en el archivo composer.json.
+Este archivo es generado automáticamente por Composer y se encarga de localizar
+e incluir las clases según el namespace definido en composer.json.
 
 ## Relación Namespace ↔ Ruta
 
@@ -86,83 +87,45 @@ El archivo composer.json define el mapeo entre namespaces y carpetas físicas:
     }
 }
 ```
-Esto significa que:
-- App\User → App/User.php
-- Database\model\ProductModel → Database/model/ProductModel.php
-
-## Código de las Clases 
-🔹 Clase User
-```bash
-namespace App;
-class User {
-    public function getName(): string
-    {
-        return "Dave";
-    }
-}
-```
-### Descripción:
-Esta clase representa un usuario del sistema.
-```bash
-Función getName()
-```
-Retorna el nombre del usuario en formato de cadena (string).
-
-🔹Clase ProductModel
-```bash
-namespace Database\model;
-
-class ProductModel {
-    public function getId(): int
-    {
-        return 123;
-    }
-}
-```
-### Descripción:
-Esta clase simula un modelo de datos de producto.
-```bash
-Función getId()
-```
-Retorna el identificador del producto como un número entero (int)
-
-
-## Uso en el sistema
-En el archivo principal (index.php) se utilizan las clases de la siguiente manera:
-```bash
-use App\User;
-use Database\model\ProductModel;
-
-$user = new User();
-echo $user->getName();
-
-$product = new ProductModel();
-echo $product->getId();
-
-```
-Gracias al autoload, no es necesario incluir manualmente los archivos de las clases.
 
 ## Nota
 La carpeta `vendor/` no se incluye en el repositorio, ya que es generada automáticamente mediante Composer al ejecutar `composer install` o `composer dump-autoload`.
 
 ## Estructura de Carpetas
-El proyecto sigue el estándar PSR-4, donde los namespaces están directamente relacionados con la estructura de carpetas:
+
+El proyecto sigue el estándar PSR-4 y el patrón de diseño MVC:
 ```bash
-autoload-psr4/
+PSR-1/
 │
-├── App/                          → Clases principales (Namespace: App)
-│   └── User.php
+├── App/                              → Namespace: App\
+│   ├── Controllers/                  → Controladores MVC
+│   │   ├── MenuController.php
+│   │   ├── EstacionController.php    → Problema #8
+│   │   ├── EstadisticaController.php → Problema #7
+│   │   └── PotenciaController.php    → Problema #9
+│   │
+│   ├── Models/                       → Modelos MVC (lógica de negocio)
+│   │   ├── EstacionModel.php
+│   │   ├── EstadisticaModel.php
+│   │   └── PotenciaModel.php
+│   │
+│   ├── Utilities/                    → Clases utilitarias estáticas
+│   │   └── Utilidades.php
+│   │
+│   └── View/                         → Vistas MVC
+│       ├── partials/
+│       │   ├── header.php            → DRY: cabecera reutilizable
+│       │   └── footer.php            → DRY: footer con fecha dinámica
+│       ├── menu.php
+│       ├── estacion.php
+│       ├── estadistica.php
+│       └── potencia.php
 │
-├── Database/
-│   └── model/                    → Modelos del sistema
-│       └── ProductModel.php
-│
-├── imgs/                         → Recursos visuales (imágenes del README)
-│
-├── .gitignore                    → obligando a que la carga automática se genere localmente mediante Composer.
-│
-├── composer.json                 → Configuración de Composer (PSR-4)
-└── index.php                     → Punto de entrada del sistema
+├── imgs/                             → Recursos visuales
+├── vendor/                           → Generado por Composer (no incluido)
+├── .gitignore
+├── composer.json                     → Configuración PSR-4
+└── index.php                         → Punto de entrada / Router
 ```
 
 ## Relación clave:
@@ -172,39 +135,55 @@ Ruta física: App/User.php
 
 ```
 
-## Pruebas de Ejecución - Imagenes
-A continuación se muestran evidencias del correcto funcionamiento del sistema utilizando Composer Autoload bajo el estándar PSR-4.
-### Generación del Autoload
-Se ejecutó el comando para generar los archivos de carga automática:
 
-![imagen](imgs/im1.png)
+## Principio DRY aplicado
 
-Esto permite que Composer registre automáticamente las clases según su namespace y ruta definida.
+- `header.php` y `footer.php` son componentes compartidos por todas las vistas
+- El menú usa un `foreach` sobre un arreglo para evitar repetir HTML
+- `Utilidades.php` centraliza toda la lógica de validación y sanitización
+- Cada controlador reutiliza el mismo método `cargarVista()`
 
-### Ejecución del Sistema
-Se ejecutó el archivo principal del proyecto:
+## Clases Utilitarias con Métodos Estáticos
 
-![imagen](imgs/im2.png) 
+```php
+// Sanitización XSS
+Utilidades::limpiarXss($valor);
 
-Esta imagen demuestra que:
-- Las clases fueron cargadas automáticamente
-- No se utilizaron require manuales
-- El sistema funciona correctamente sin errores de tipo Class not found
+// Validación de fecha
+Utilidades::esFechaValida($fecha);
+
+// Valor por defecto si está vacío
+Utilidades::nvl($var, $default);
+
+// Enlace de navegación seguro
+Utilidades::enlaceNavegacion($url, $etiqueta);
+```
 
 ## Conclusiones Técnicas
 
 ### 🔹 Mantenibilidad
-El uso de Composer Autoload permite nos agregar nuevas clases al proyecto sin necesidad de modificar manualmente múltiples archivos, lo que facilita la escalabilidad y organización del sistema.
+El patrón MVC separa la lógica de negocio de la presentación, facilitando
+el mantenimiento y escalabilidad del proyecto.
 
-### 🔹 Eficiencia de Memoria
-Gracias al concepto de Lazy Loading, las clases se cargan únicamente cuando son necesarias, optimizando el uso de memoria y mejorando el rendimiento del sistema.
+### 🔹 Seguridad
+La clase `Utilidades` centraliza todas las validaciones y sanitizaciones,
+aplicando las recomendaciones OWASP para prevenir ataques XSS e inyección.
 
 ### 🔹 Estandarización
-El uso del estándar PSR-4 proporciona una estructura clara y organizada, permitiendo que el proyecto sea más entendible y compatible con frameworks modernos como Laravel.
+El uso de PSR-1 y PSR-4 garantiza una estructura clara, nomenclatura
+consistente y compatibilidad con frameworks modernos como Laravel.
+
+### 🔹 Eficiencia
+El principio DRY reduce la duplicación de código, minimizando los puntos
+de fallo y facilitando futuras modificaciones.stándar PSR-4 proporciona una estructura clara y organizada, permitiendo que el proyecto sea más entendible y compatible con frameworks modernos como Laravel.
 
 
-## Autor
-**Winstron Franco**  
+
+## Autores
+**Winstron Franco**<br>
+**Joseph Córdoba**<br>
+**Guillermo Mas**<br>
+
 1GS131 - Desarrollo de Software VII 
 Universidad Tecnológica de Panamá  
 
