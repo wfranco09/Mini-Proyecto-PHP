@@ -3,18 +3,30 @@
   <img src="imgs/ima1.webp" width="800">
 </p>
 
-## Laboratorio #4- Implementación de la Carga Automática (Autoload) bajo el Estándar PSR-4 con Composer.
-El Autoload es un mecanismo en PHP que permite cargar clases automáticamente sin necesidad de utilizar instrucciones como require o include. Esto mejora la organización del código y evita errores como “Class not found”.
-Mediante el uso de Composer y el estándar PSR-4, se establece una relación entre los namespaces y la estructura de carpetas del proyecto, permitiendo que las clases se carguen de forma dinámica cuando son necesarias.
-En este laboratorio se implementa este enfoque, demostrando cómo el uso de Autoload facilita el desarrollo, mejora la mantenibilidad del sistema y promueve buenas prácticas en la programación.
+## MiniMini Proyecto #2 de Sentencias de Control y Clases - Resolviendo problemas con estructuras de decisión y repetición en PHP
+
+
 
 ## 🎯Objetivos del laboratorio
+Construir aplicaciones web aplicando principios, técnicas, metodologías y
+herramientas de diseño y desarrollo que permita la optimización, facilidad de
+mantenimiento, cumpliendo los criterios de usabilidad y accesibilidad.
 
-🔹 Comprender la importancia de la documentación en proyectos de desarrollo de software<br>
-🔹 Aplicar el estándar PSR-4 para la organización de clases y namespaces.<br>
-🔹 Configurar correctamente el archivo composer.json para implementar la carga automática.<br>
-🔹 Evidenciar el uso de Composer en la gestión de dependencias y autoload.<br>
-🔹 Demostrar el correcto funcionamiento del sistema evitando errores como Class not found.<br>
+## Objetivos especificos
+Aplicar estructuras de control condicional y repetitiva, funciones matemáticas,
+funciones de validación, clases con métodos estáticos, para resolver problemas
+algorítmicos, utilizando buenas prácticas de programación como las
+recomendaciones de PSR-1, PSR-4, Recomendación OWASP, principio DRY
+(Don't Repeat Yourself).
+
+## Metodología
+En Grupo de tres estudiantes resolverán una serie de problemas que requieren el
+uso de estructuras como if, case, while, for, foreach, swtich, arreglos, funciones y
+clases. Cada problema deberá resolverse mediante el lenguaje de programación
+PHP. Se evaluará no solo la lógica del algoritmo, sino también su claridad, estilo y
+nomenclatura utilizada (camelCase para nombres de métodos/procedimientos,
+camelCase para variables).
+
 
 ## ⚙️ Requisitos Previos
 
@@ -157,6 +169,7 @@ autoload-psr4/
 ```bash
 Namespace: App\User  
 Ruta física: App/User.php
+
 ```
 
 ## Pruebas de Ejecución - Imagenes
