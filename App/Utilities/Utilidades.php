@@ -76,4 +76,18 @@ class Utilidades
             FILTER_VALIDATE_FLOAT
         ) !== false && $valor >= 0;
     }
-}
+
+    /**
+     * Suma los números en un rango dado.
+     */
+    public static function sumarRango(int $inicio, int $fin): int
+    {
+        $suma = 0;
+
+        for ($i = $inicio; $i <= $fin; $i++) {
+            $suma += $i;
+        }
+
+        return $suma;
+    }
+    }
