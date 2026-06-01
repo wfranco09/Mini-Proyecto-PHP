@@ -49,4 +49,31 @@ class Utilidades
         $urlSegura = filter_var($url, FILTER_SANITIZE_URL);
         return '<a href="' . $urlSegura . '">' . self::limpiarXss($etiqueta) . '</a>';
     }
+
+    /**
+     * Calcula el cuadrado de un número.
+     */
+    public static function cuadrado(float $numero): float
+    {
+        return pow($numero, 2);
+    }
+
+    /**
+     * Calcula la raíz cuadrada de un número.
+     */
+    public static function raizCuadrada(float $numero): float
+    {
+      return sqrt($numero);
+    }
+
+    /**
+     * Valida que un valor sea un número positivo.
+     */
+    public static function validarNumeroPositivo($valor): bool
+    {
+        return filter_var(
+            $valor,
+            FILTER_VALIDATE_FLOAT
+        ) !== false && $valor >= 0;
+    }
 }

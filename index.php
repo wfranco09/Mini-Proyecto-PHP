@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 require_once __DIR__ . '/vendor/autoload.php';
 
+use App\Controllers\Problema1Controller;
 use App\Controllers\EstacionController;
 use App\Controllers\MenuController;
 use App\Controllers\EstadisticaController; 
@@ -15,7 +16,10 @@ $problema = $problema ?? '0';
 
 switch ($problema) {
 
-
+    case '1':
+    $controller = new Problema1Controller();
+    $controller->index();
+    break;
     case '9':
         $controller = new PotenciaController();
         $controller->index();
