@@ -126,8 +126,10 @@
     <div class="container">
         <h2>Múltiplos de 4</h2>
 
+        // Formulario para ingresar cantidad de múltiplos a generar
         <form method="post">
             <div class="inputs">
+                // Campo de entrada para cantidad de múltiplos
                 <input
                     type="number"
                     name="cantidad"
@@ -151,9 +153,10 @@
 
         <?php if ($error): ?>
 
-        <div class="error">
-            <?= htmlspecialchars($error) ?>
-        </div>
+            // Mostrar mensaje de error si existe
+            <div class="error">
+                <?= htmlspecialchars($error) ?>
+            </div>
 
         <?php endif; ?>
         <?php if (!empty($resultado)): ?>
@@ -161,7 +164,8 @@
         <div class="resultado">
 
             <h3>Primeros <?= count($resultado) ?> múltiplos de 4</h3>
-
+             
+            // Mostrar cada múltiplo generado
             <?php foreach ($resultado as $fila): ?>
 
                 <p>

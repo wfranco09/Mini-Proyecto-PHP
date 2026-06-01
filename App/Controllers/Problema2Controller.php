@@ -9,20 +9,24 @@ class Problema2Controller
 {
     private Problema2Model $model;
 
+    // Inyectamos el modelo en el constructor
     public function __construct()
     {
         $this->model = new Problema2Model();
     }
 
+    // Controlador para manejar la lógica de la vista del problema 2
     public function index()
     {
         $resultado = [];
         $error = null;
 
+        // Verificamos si se ha enviado el formulario
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             $n = $_POST['cantidad'] ?? '';
 
+            // Validamos que el número sea positivo y no excesivamente grande para evitar problemas de rendimiento
             if (!Utilidades::validarNumeroPositivo($n)) {
 
                 $error = 'Ingrese un número válido.';

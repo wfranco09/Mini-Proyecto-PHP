@@ -130,11 +130,9 @@
             Calcular suma
         </button>
 
-        <div class="actions">
+       <?= \App\Utilities\Utilidades::enlaceNavegacion('index.php','← Volver al menú principal') ?>
 
-            <?= \App\Utilities\Utilidades::enlaceNavegacion('index.php','← Volver al menú principal') ?>
-
-        </div>
+        
 
     </form>
 

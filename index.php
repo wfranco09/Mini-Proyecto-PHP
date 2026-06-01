@@ -36,7 +36,20 @@ switch ($problema) {
         $controller->index();
     break;
 
+    case '4':
+        $controller = new Numeros200Controller();
+        $controller->index();
+    break;
 
+    case '5':
+        $controller = new EdadesController();
+        $controller->index();
+    break;
+
+    case '6':
+        $controller = new PresupuestoHospitalController();
+        $controller->index();
+    break;
 
     case '9':
         $controller = new PotenciaController();
@@ -51,29 +64,10 @@ switch ($problema) {
     case '7':
         $controller = new EstadisticaController();
         $controller->index();
-        break;
-
-    case '4':
-        $controller = new Numeros200Controller();
-        $controller->index();
-        break;
-
-    case '5':
-        $controller = new EdadesController();
-        $controller->index();
-        break;
-
-    case '6':
-        $controller = new PresupuestoHospitalController();
-        $controller->index();
-        break;
-
-
-
-    // agreguen sus caso de los demás problemas acá en el switch colegas
+    break;
 
     default:
         $controller = new MenuController();
         $controller->index();
-        break;
+    break;
 }

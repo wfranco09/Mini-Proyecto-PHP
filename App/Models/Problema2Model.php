@@ -4,6 +4,7 @@ namespace App\Models;
 
 class Problema2Model
 {
+    // Genera los primeros $cantidad múltiplos de 4
     public function generarMultiplos(int $cantidad): array
     {
         $multiplos = [];
