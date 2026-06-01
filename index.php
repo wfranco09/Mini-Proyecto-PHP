@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 require_once __DIR__ . '/vendor/autoload.php';
 
+use App\Controllers\Problema1Controller;
+use App\Controllers\Problema2Controller;
+use App\Controllers\Problema3Controller;
 use App\Controllers\EstacionController;
 use App\Controllers\EdadesController;
 use App\Controllers\MenuController;
@@ -18,6 +21,20 @@ $problema = $problema ?? '0';
 
 switch ($problema) {
 
+    case '1':
+        $controller = new Problema1Controller();
+        $controller->index();
+    break;
+    
+    case '2':
+        $controller = new Problema2Controller();
+        $controller->index();
+    break;
+
+    case '3':
+        $controller = new Problema3Controller();
+        $controller->index();
+    break;
 
 
 

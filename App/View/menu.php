@@ -17,8 +17,8 @@ require __DIR__ . '/partials/header.php';
         // DRY: arreglo con los problemas, se recorre con foreach
         $problemas = [
             1 => 'Media, desviación estándar, min y máx',
-            2 => 'Suma del 1 al 1,000',
-            3 => 'Múltiplos de 4',
+            2 => 'Múltiplos de 4',
+            3 => 'Suma del 1 al 1,000',
             4 => 'Suma pares e impares del 1 al 200',
             5 => 'Clasificación de edades',
             6 => 'Presupuesto hospitalario',
