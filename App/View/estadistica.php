@@ -147,6 +147,7 @@ require __DIR__ . '/partials/header.php';
             <span>Total de notas</span>
             <strong><?= $estadisticas['cantidad'] ?></strong>
         </div>
+        
 
     <?php endif; ?>
 

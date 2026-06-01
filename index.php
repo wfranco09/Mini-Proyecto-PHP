@@ -5,15 +5,20 @@ declare(strict_types=1);
 require_once __DIR__ . '/vendor/autoload.php';
 
 use App\Controllers\EstacionController;
+use App\Controllers\EdadesController;
 use App\Controllers\MenuController;
-use App\Controllers\EstadisticaController; 
-use App\Controllers\PotenciaController; 
+use App\Controllers\EstadisticaController;
+use App\Controllers\Numeros200Controller;
+use App\Controllers\PresupuestoHospitalController;
+use App\Controllers\PotenciaController;
 
 // Sanitización OWASP: limpiar parámetro GET
 $problema = filter_input(INPUT_GET, 'problema', FILTER_SANITIZE_NUMBER_INT);
 $problema = $problema ?? '0';
 
 switch ($problema) {
+
+
 
 
     case '9':
@@ -31,7 +36,24 @@ switch ($problema) {
         $controller->index();
         break;
 
-        // agreguen sus caso de los demás problemas acá en el switch colegas
+    case '4':
+        $controller = new Numeros200Controller();
+        $controller->index();
+        break;
+
+    case '5':
+        $controller = new EdadesController();
+        $controller->index();
+        break;
+
+    case '6':
+        $controller = new PresupuestoHospitalController();
+        $controller->index();
+        break;
+
+
+
+    // agreguen sus caso de los demás problemas acá en el switch colegas
 
     default:
         $controller = new MenuController();
