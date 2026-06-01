@@ -32,7 +32,6 @@ class PresupuestoHospitalModel
             'Pediatría' => round($presupuestoTotal * $this->porcentajePediatria, 2),
         ];
     }
-    public function getColores(): array
     
     
 
