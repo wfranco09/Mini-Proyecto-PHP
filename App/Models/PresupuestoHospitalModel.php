@@ -32,34 +32,9 @@ class PresupuestoHospitalModel
             'Pediatría' => round($presupuestoTotal * $this->porcentajePediatria, 2),
         ];
     }
-
-    /**
-     * Devuelve los porcentajes (en porcentaje, no fracción) para cada departamento.
-     *
-     * @return array<string, float>
-     */
-    public function getPorcentajesPercent(): array
-    {
-        return [
-            'Ginecología' => $this->porcentajeGinecologia * 100,
-            'Traumatología' => $this->porcentajeTraumatologia * 100,
-            'Pediatría' => $this->porcentajePediatria * 100,
-        ];
-    }
-
-    /**
-     * Colores para la gráfica, indexados por departamento.
-     *
-     * @return array<string, string>
-     */
     public function getColores(): array
-    {
-        return [
-            'Ginecología' => '#60a5fa',
-            'Traumatología' => '#f97316',
-            'Pediatría' => '#34d399',
-        ];
-    }
+    
+    
 
     
 }
