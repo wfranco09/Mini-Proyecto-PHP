@@ -1,6 +1,6 @@
 
 <p align="center">
-  <img src="imgs/1T.png" width="800">
+  <img src="imgs/1T.png" width="600">
 </p>
 
 ## MiniMini Proyecto #2 de Sentencias de Control y Clases - Resolviendo problemas con estructuras de decisión y repetición en PHP
