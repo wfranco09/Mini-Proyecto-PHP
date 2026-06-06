@@ -100,11 +100,23 @@ PSR-1/
 ├── App/                              → Namespace: App\
 │   ├── Controllers/                  → Controladores MVC
 │   │   ├── MenuController.php
-│   │   ├── EstacionController.php    → Problema #8
-│   │   ├── EstadisticaController.php → Problema #7
-│   │   └── PotenciaController.php    → Problema #9
+│   │   ├── Problema1Controller.php               → Problema #1
+│   │   ├── Problema2Controller.php               → Problema #2
+│   │   ├── Problema3Controller.php               → Problema #3
+│   │   ├── Numeros200Controller.php              → Problema #4
+│   │   ├── EdadesController.php                  → Problema #5
+│   │   ├── PresupuestoHospitalController.php     → Problema #6
+│   │   ├── EstadisticaController.php             → Problema #7
+│   │   ├── EstacionController.php                → Problema #8
+│   │   └── PotenciaController.php                → Problema #9
 │   │
 │   ├── Models/                       → Modelos MVC (lógica de negocio)
+│   │   ├── Problema1Model.php              
+│   │   ├── Problema2Model.php             
+│   │   ├── Problema3Model.php              
+│   │   ├── Numeros200Model.php             
+│   │   ├── EdadesModel.php                  
+│   │   ├── PresupuestoHospitalModel.php     
 │   │   ├── EstacionModel.php
 │   │   ├── EstadisticaModel.php
 │   │   └── PotenciaModel.php
@@ -117,6 +129,12 @@ PSR-1/
 │       │   ├── header.php            → DRY: cabecera reutilizable
 │       │   └── footer.php            → DRY: footer con fecha dinámica
 │       ├── menu.php
+│       ├── Problema1.php              
+│       ├── Problema2.php               
+│       ├── Problema3.php              
+│       ├── Numeros200.php              
+│       ├── Edades.php                  
+│       ├── PresupuestoHospital.php     
 │       ├── estacion.php
 │       ├── estadistica.php
 │       └── potencia.php
