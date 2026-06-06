@@ -126,10 +126,10 @@
     <div class="container">
         <h2>Múltiplos de 4</h2>
 
-        // Formulario para ingresar cantidad de múltiplos a generar
+        <!-- Formulario para ingresar cantidad de múltiplos a generar -->
         <form method="post">
             <div class="inputs">
-                // Campo de entrada para cantidad de múltiplos
+                <!-- Campo de entrada para cantidad de múltiplos -->
                 <input
                     type="number"
                     name="cantidad"
