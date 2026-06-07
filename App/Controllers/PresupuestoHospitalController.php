@@ -30,6 +30,10 @@ class PresupuestoHospitalController
             if ($presupuestoTotal > 0) {
                 $distribucion = $this->model->calcularDistribucion($presupuestoTotal);
             }
+            else {
+                $presupuestoTotal = 0.0;
+                $distribucion = [];
+            }
         }
 
         $this->cargarVista('presupuestoHospital', [
